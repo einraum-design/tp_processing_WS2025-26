@@ -1,9 +1,5 @@
-# tp_processing_WS2025-26
-Kursmaterial TP Processing (p5js) Wintersemester 2025-26
-Kursdokumentation TP Processing TH|W–S FB Gestaltung  
-
 ## 24.10.2025 – Einfache Formen und Farben
-- [TP 1](https://einraum-design.github.io/tp_processing_WS2024_25/TP1/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2024_25/blob/main/docs/TP1/sketch.js)
+- [TP 1](https://einraum-design.github.io/tp_processing_WS2025_26/TP1/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2025_26/blob/main/docs/TP1/sketch.js)
 
 
 ### Kommentare  
