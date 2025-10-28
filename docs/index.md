@@ -1,5 +1,5 @@
 ## 24.10.2025 – Einfache Formen und Farben
-- [TP 1](https://einraum-design.github.io/tp_processing_WS2025_26/TP1/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2025_26/blob/main/docs/TP1/sketch.js)
+- [TP 1](https://einraum-design.github.io/tp_processing_WS2025-26/TP1/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2025-26/blob/main/docs/TP1/sketch.js)
 
 
 ### Kommentare  
@@ -91,7 +91,7 @@ Mit noFill() und noStroke() kann auch keine Füllfarb oder keine Kontur festgele
 
 
 ## Grundstruktur setup & draw. Systemvariablen
-- [TP 2](https://einraum-design.github.io/tp_processing_WS2025_26/TP2/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2025_26/blob/main/docs/TP2/sketch.js)
+- [TP 2](https://einraum-design.github.io/tp_processing_WS2025-26/TP2/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2025-26/blob/main/docs/TP2/sketch.js)
 
 
 ### function setup & draw
