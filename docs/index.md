@@ -167,3 +167,49 @@ if(mouseIsPressed) {
     fill(255);
 }
 ```
+
+
+## 31.10.2025 Variablentypen & if-Bedingungen Verknpfungen
+
+- [TP 3](https://einraum-design.github.io/tp_processing_WS2025-26/TP3/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2025-26/blob/main/docs/TP3/sketch.js)
+- [TP 4](https://einraum-design.github.io/tp_processing_WS2025-26/TP4/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2025-26/blob/main/docs/TP4/sketch.js)
+
+### Variablen
+***elementaren Variablen***
+- Ganzzahlen Integers int --> 1, 3, 34, -23
+- Fließkommazahlen FloatingPointNumbers float --> 0.234, 123.234, 1.0, -234.234
+- Boolean bool --> true / false
+- Character char --> 'a', 'b', ' ', '+', '\'' (escapen von sonderzeichen über \Sonderzeichen)
+
+***Objekte***
+- Textkette String --> "Hello World", " ", "8ohasdf"
+- p5.image (PImage) Bilder
+- p5.font (PFont) Schriften
+
+
+Variablen Definition in den meisten Programmiersprachen
+```
+// Typ variablenNamen ( = Wert);
+int alter = 18;
+```
+
+Variabeln Definition in p5js
+```
+let myXPos = 40.0;
+let myYPos = 60;
+let xSpeed, ySpeed;
+```
+
+
+### Bedingungen Verknüpfen
+Um mehrere Bedingung miteinander zu verbinden gibt es ***Verknüpfungsoperatoren***
+- CONDITION_A && CONDITION_B --> Wenn Bedingung A UND Bedingung B erfüllt sind
+- CONDITION_A &#124;&#124; CONDITION_B --> Wenn Bedingung A ODER Bedingung B (oder beide) erfüllt sind
+
+
+### Die random-Funktion
+Die Random Funktion git bei jedem Aufruf eine neue zufällige Zahl zurück.
+```
+random(400); // gibt eine Zahl zwischen 0 und 400 zurück
+random(200, 400); // gibt eine Zahl zwischen 200 und 400 zurück
+```
