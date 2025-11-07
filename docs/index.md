@@ -213,3 +213,67 @@ Die Random Funktion git bei jedem Aufruf eine neue zufällige Zahl zurück.
 random(400); // gibt eine Zahl zwischen 0 und 400 zurück
 random(200, 400); // gibt eine Zahl zwischen 200 und 400 zurück
 ```
+
+
+## 7.11.2025 Transformationen  (verschieben, rotieren, skalieren)
+
+- [TP 5](https://einraum-design.github.io/tp_processing_WS2025-26/TP5/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2025-26/blob/main/docs/TP5/sketch.js)
+- [TP 5_2](https://einraum-design.github.io/tp_processing_WS2025-26/TP5_2/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2025-26/blob/main/docs/TP5_2/sketch.js)
+
+Um Zeichenelemente im Processing Sketch zu bewegen, gibt es einige Transformations Tools.
+
+Transformationen werden immer vom Nullpunkt des Koordinatensystems ausgeführt.
+Zu Beginn der void draw ist das Koordinatensystem immer in der linken oberen Ecke.
+Wird ein rotate(float Winkel) Befehl ausgeführt wird also alles um diese Ecke rotiert. 
+
+Um um einen anderen Mittelpunkt rotieren zu können, muss zuerst das Zeichenkoordinatensystem 
+an den gewünschten Mittelpunkt verschoben werden.
+Die geschieht über den translate(float x, float y) Befehl. Translate kann das Zeichenkoordinatensystem
+in x und y Richtung verschieben.
+
+Als drittes Transformationstool gibt es den scale(float x, float y) Befehl. 
+Dieser Skaliert das Koordinatensystem. Scale funktioniert mit positiven wie auch negativen Werten. Damit lassen sich Inhalte auch spiegeln. 
+
+Es können beliebig viele Transformationen hintereinander ausgeführt werden. 
+Jede Verschiebung und Rotation wird aber auf die vorherigen aufaddiert!
+Wenn das Koordinatensystem mit rotate() verdreht wurde und anschließend wieder 
+ein translate ausgeführt wird, wird das Koordinatensystem in die rotierte Richtung verschoben.
+
+Bei jedem Neustart der void draw() wird das Koordinatensystem wieder auf das Standart Koordinatensystem zurück gesetzt.
+
+Das Zeichenkoordiantensystem lässt sich innerhalb der void draw wieder auf Standartposition, Rotation und Skalierung zurücksetzen:
+
+```
+ resetMatrix();
+```
+
+Um einen Zwischenstand einer Transformatione zu speichern und später wieder auf diesen Stand zurückwechseln zu können können die funktionen push() und pop() verwendet werden. 
+Wichtig ist: Jede push() Funktion muss auch wieder mit einer pop() Funkition aufgelöst werden.
+
+```
+ push();
+ // dazwischen können beliebige Transforamtionen oder 
+ // Style Änderungen gemacht werden. 
+ pop();
+
+ // Nach dem pop() ist die Transformation und alle 
+ // Style Regeln wieder wie beim letzten Aufruf 
+ // von push();
+```
+
+### 3D Raum
+Um im dreidimensionalen Raum zu zeichnen, muss bei der createCanvas Funktion der WEBGL Renderer gestartet werden: 
+```
+ createCanva(800, 600, WEBGL);
+```
+
+Dann können Transformationen auch in die 3. Achse ausgeführt werden. 
+Beim translate und scale Befehl gilt der dritte Paramter für die z-Achse. 
+Für die Rotationen gibt es die zusätzlichen Befehle
+```
+ rotateX();
+ rotateY();
+ rotateZ();
+```
+
+Die Darstellung der 3D Szene kann durch Kameraeinstellungen (perspektiv / ortogonal / Brennweite) und Beleuchtung der Szene gesteuert werden. Siehe Referenz unter Camera und Lights.
