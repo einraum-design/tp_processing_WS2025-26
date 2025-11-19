@@ -277,3 +277,21 @@ Für die Rotationen gibt es die zusätzlichen Befehle
 ```
 
 Die Darstellung der 3D Szene kann durch Kameraeinstellungen (perspektiv / ortogonal / Brennweite) und Beleuchtung der Szene gesteuert werden. Siehe Referenz unter Camera und Lights.
+
+
+## 14.11.2025 Wiederhol-Schleifen
+Um Funktionen mehrfach auszuführen, gibt es unterschiedliche Schleifen Konstrukte (while-loop, do-while-loop, for-loop und for-each-loop).
+
+- [TP 6](https://einraum-design.github.io/tp_processing_WS2025-26/TP6/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2025-26/blob/main/docs/TP6/sketch.js)
+
+### WHILE-LOOP:
+
+Die while loop ist von der Syntax am einfachsten aufgebaut. 
+```
+  while (CONDITION) {
+    /* do something - Schleifenrumpf */
+  }
+```
+Die Bedingung wird überprüft - wenn die Bedingung true ist, wird der Schleifenrumpf ausgeführt.
+Anschließend wird die Bedingung erneut überprüft und der Schleifenrumpf erneut ausgeführt etc.
+Ist die Bedingung nicht erfüllt, wird die Wiederholung unterbrochen und das Programm nach der Schleife fortgesetzt.
