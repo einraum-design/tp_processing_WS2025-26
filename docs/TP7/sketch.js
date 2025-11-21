@@ -103,8 +103,6 @@ function draw() {
   // für jeden Wert in randomValues eine line zeichnen
   for( let i = 0; i < randomValues.length; i++){
     line(0, 0, 0, -randomValues[i]);
-
-
     rotate(1);
   }
   pop();

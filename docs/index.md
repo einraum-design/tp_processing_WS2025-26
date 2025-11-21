@@ -295,3 +295,94 @@ Die while loop ist von der Syntax am einfachsten aufgebaut.
 Die Bedingung wird überprüft - wenn die Bedingung true ist, wird der Schleifenrumpf ausgeführt.
 Anschließend wird die Bedingung erneut überprüft und der Schleifenrumpf erneut ausgeführt etc.
 Ist die Bedingung nicht erfüllt, wird die Wiederholung unterbrochen und das Programm nach der Schleife fortgesetzt.
+
+
+## 21.11.2025 Erweitunge: 
+- [TP 7](https://einraum-design.github.io/tp_processing_WS2025-26/TP7/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2025-26/blob/main/docs/TP7/sketch.js)
+
+
+### FOR-LOOP
+Die for Schleife hat drei Parameter
+- Im ersten Teile kann eine Variable erstellt werden, die dann nur innerhalb der for-schleife gültig ist
+- Die Bedingung ist analog zur while-Schleife
+- im Incrementor Teil, wird angegeben, was jeweils einer Auführung des Schleifenrumps ausgeführt werden soll (üblicherweise die Variale eins hochzählen)
+```
+  for (VARIABLENDEFINITION; CONDITION; INCREMENTOR) {
+    /* do something - Schleifenrumpf */
+  }
+
+  // zB:
+  for(let i = 0; i < 10; i++){
+    console.log(i); // gibt 0, 1, 2, ... 9 aus
+  } 
+```
+
+### foreach
+Hier gibt es keine "Zählervariable". stattdessen werden einfach die Werte des Arrays Wert für Wert abgearbeitet.
+```
+  myarray.forEach(element => {
+      console.log(element);
+  });
+```
+
+
+## Erweiterung zu Variaben: Arrays und Objekte
+
+### Arrays
+Bisher hatten wir Variablen in der Form kennengelernt, dass in jede Variable ein Wert gespeichert wird. 
+Um viele Werte unter einem Variablennamen speichern zu können verwendet man Arrays. Bei einem Array können viele Werte wie in einem Regal mit vielen Fächern abgelegt werden. Jeder Wert kann über einen Index (Zahl von 0 - n) als Schlüssel angesprochen werden.
+Arrays werden über eckige Klammern gekennzeichnet:
+
+```
+ let myArray = [];
+```
+
+Arrays mit Werten initialisieren:
+```
+ let namesArray = ["Andres", "Tina", "Philipp"];
+```
+Der Zugriff auf die Werte erfolg über die den Index in den eckigen Klammern:
+```
+ let myArray[0] = "hello"; // wert "hello" an der Stelle 0 im Array
+```
+Bei Arrays kann man über das Attribut **length** abrufen, wie viele Werte in dem Array aktuell enthalten sind.
+Mit der Methode **.push()** lassen sich neue Werte an das Array hinten anhängen.
+
+
+### Objekte
+Objekte sind noch etwas allgemeiner gefasst. Hier sind die Schlüssel, um auf die einzelnen Werte von dem Objekt zugreifen zu können nicht festgelegt auf durchnummerierte Zahlen, sondern können jeder Begriff sein.
+Objekt werden über die geschweiften Klammern definiert:
+
+```
+ let myObject = {};
+```
+Schlüssel - Wert - Paare lassen sich einfach über den Punkt-Operator hinzufügen:
+```
+ let myObject = {}
+ myObject.name = "Otto";
+ myObject.alter = 43;
+
+ // oder über den Schlüssel als String ("") in eckigen Klammern hinzufügen:
+ myObject["sex"] = "male";
+```
+
+## Event Listener
+
+Soll ein Zähler je Mausklick oder Tastendruck – je Event (zB. Click) um eins hochgezählt werden, muss beachtet werden, dass der Wechsel nicht innerhalb der void draw mehrfach ausgeführt wird.
+Deshalb gibt es Event Händler, die auf bestimmte Events hin jeweils einmal ausgeführt werden. Diese stehen außerhalb der function setup() und der function draw().
+```
+// wird in dem Moment aufgerufen, wenn die Maustaste gedrückt wird.
+void mousePressed() {
+    // der Inhalt im Funktionsrumpf wird pro Maustraste drücken einmal ausgeführt.
+}
+
+void mouseReleased() {
+    // der Inhalt im Funktionsrumpf wird pro Maustaste loslassen einmal ausgeführt.
+}
+
+void keyPressed() {
+    // der Inhalt im Funktionsrumpf wird je Tastendruck einmal ausgeführt.
+}
+```
+
+Weiter Eventhandler für Maus- und TastaturEvents sind in der Referenz zu finden.
