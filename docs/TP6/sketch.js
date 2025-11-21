@@ -40,6 +40,7 @@ function draw() {
   let peakCount = round(mouseX/10);
 
 
+  push();
 
   translate(600, 140);
   noStroke();
@@ -54,4 +55,5 @@ function draw() {
     // i++;    // even shorter shortcut
   }
 
+  pop();
 }
