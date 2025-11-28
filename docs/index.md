@@ -386,3 +386,123 @@ void keyPressed() {
 ```
 
 Weiter Eventhandler für Maus- und TastaturEvents sind in der Referenz zu finden.
+
+
+## 28.11.2025 functions, play sound and videos, html-UI Elements and listener: 
+- [TP 8](https://einraum-design.github.io/tp_processing_WS2025-26/TP8/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2025-26/blob/main/docs/TP8/sketch.js)
+
+
+### Funktionen definieren
+Processing bietet einige vordefinierte Funktionen, wie zb. die ellipse(), map(), fill() … Funktionen.
+Wir können jedoch auch beliebig eigene Funktionen definieren.
+
+Sobald ein Programmteil mehrfach genutzt wird, sollte dieser Teil als Funktion ausgelagert werden um doppelten Code (der das Programm unübersichtlich macht und kopierfehler begünstigt) zu vermeiden. 
+
+Es können auch logische Programmteile zusammengefasst werden und als Funktion ausgelagert werden, um das Programm übersichtlicher zu gestalten. ZB. der Programmteil der ein Menü zeichnet ... 
+
+
+Eine Funktionsdefinition besteht aus vier Teilen:
+**Deklaration "function"**
+
+**Funktionsname**
+- beginnt mit einem Kleinbuchstaben
+- ein Wort! (Keine Leerzeichen/Kommas/Punkte)
+
+**Klammern (optional Paramater …)**
+
+```
+function myFunction (parameter1, parameter2){
+    // optional Rückgabewert
+    return result;
+
+}
+```
+
+Es lassen sich auch optionale Parameter in der Funktion definieren:
+```
+function myFunction (parameter1 = 100){
+    ...
+}
+```
+Wenn ein Parameter beim Funktionsaufruf mitgegeben wird, wird dieser als parameter1 gesetzt. Ansonsten wird der Standartwert – in diesem Fall "100" genutzt.
+
+
+Es lassen sich zwei Funktionstypen unterscheiden: 
+
+- Funktionen ohne Rückgabetyp:
+Bei Funktionsaufruf wird alles was im Rumpf steht einfach ausgeführt und danach kehrt das Programme wieder an die Stelle, an der die Funktion aufgerufen wurde zurück und führt die nächsten Befehle aus ...
+
+- Funktionen mit Rückgabetyp
+Am Ende des Funktionsaufrufs muss ein ein „return" mit dem Rückgabewert stehen. 
+die random() Funktion liefert zB. ein Fließkommerzahl zurück ...
+
+- [TP 9](https://einraum-design.github.io/tp_processing_WS2025-26/TP9/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2025-26/blob/main/docs/TP9/sketch.js)
+
+### HTML Elemente mit p5js erstellen
+Im p5js Sketch lassen sich beliebig weitere HTML Elemente erstellen. Der Vorteil der HTML Element ist, dass sie im Gegensatz von auf dem Canvas gezeichneten Formen direkte Event Listener haben. Das heißt, dass wir direkt auf MouseOver oder Click reagiert werden kann. 
+Beispiel Button:
+
+```
+// Button erstellen:
+let button = createButton("click me");
+// An HTML Objekte kann direkt ein EventListener gehängt werden. Auf jeden Mausklick auf den button wird ausgeführt, wass in den Klammer angegeben wird.
+button.mousePressed( /* to do */ );
+```
+
+In den Klammern vom EventListener kann entweder eine *anonyme Funktion* oder ein Funktionsname angegeben werden:
+```
+// anonyme Funktion:
+button.mousePressed( ()=> { console.log("button wurde geklickt");} );
+
+// Funktionsaufruf
+button.mousePressed(meineFunktion); // meineFunktion(); muss dann im Programm definiert werden
+```
+
+### Videos einbinden
+
+Video können als eigenständiges HTML Element in eine Webseite eingebunden werden. 
+Ein Vidoe Element lässt sich mit folgender Zeile in p5js erstellen:
+```
+video = createVideo("assets/launch2.mp4");
+// es können auch Steuerungselemente beim HTML Video eingeblendet werden:
+video.showControls(true);
+```
+
+Wenn das Video allerdings auf das canvas Element gezeichnet werden soll, muss trotzdem ein Video Element erstellt werden. Hier wird das video allerdings im HTML ausgeblendent und dann nur auf den inhalt des Videoplayer zugegriffen.
+Das Video kann dann mit der image funktion auf das Canvas Element gezeichnet werden:
+```
+video = createVideo("assets/launch2.mp4");
+video.hide();
+
+// innerhalb der function draw()
+image(video, 0, 0);
+```
+
+MediaPlayer habe haben eigene Eventhandler, über die auf zB. Ende des Videos reagiert werden kann: 
+```
+// Listener der aufgerufen wird, wenn ein Video zu Ende gespielt ist
+video.onended(tue_etwas);
+
+// die function "tue_etwas" muss dann noch außerhalb der function setup() definiert werden
+function tue_etwas(elt){
+  console.log("Video ist zu Ende - schlafen gehen");
+  // zB. Videoelement ausblenden ...
+  elt.hide();
+}
+```
+
+```
+//alternativ kann eine "anonyme Funktion" aufgerufen werden
+video.onended(() => {
+  console.log("Video ended ...");
+});
+```
+
+### SoundFiles
+
+Audiowiedergabe ist nicht in der Standart p5js Bibliothek enthalten. Die Soundfunktionalität ist in einer eigenen Bibliothe. 
+Standartmäßig ist die Bibliothek aber dabei und schon in der index.html Datei verlinkt.
+
+Sound können ähnlich wie Bilder dem Sketch hinzugefügt werden.
+Es muss eine Variable für die Sounddatei angelegt werden.
+Anschließden kann der Sound abgespielt, geloopt oder pausiert oder gestoppt werden ...
