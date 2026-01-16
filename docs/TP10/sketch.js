@@ -18,3 +18,7 @@ function draw() {
     rect(0, 0, 100, 100);
   }
 }
+
+function mousePressed() {
+  fullscreen(true);
+}
